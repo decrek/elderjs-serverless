@@ -6,9 +6,9 @@
   "scripts": {
     "start": "npm run build:rollup && npm run dev:server",
     "build": "node ./src/cleanPublic.js && npm run build:rollup && npm run build:html && node ./src/afterBuild.js",
-    "build:rollup": "rollup -c",
+    "build:rollup": "rollup --config",
     "build:html": "node ./src/build.js",
-    "dev:rollup": "rollup  -c -w --no-watch.clearScreen",
+    "dev:rollup": "rollup  --config --watch --no-watch.clearScreen",
     "dev:netlify": "netlify dev",
     "dev:server": "nodemon",
     "eslint": "eslint --ext .js .",
@@ -65,7 +65,7 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-css-only": "^2.1.0",
     "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-external-globals": "^0.5.0",
+    "rollup-plugin-external-globals": "^0.6.0",
     "rollup-plugin-multi-input": "^1.1.1",
     "rollup-plugin-svelte": "^5.2.3",
     "rollup-plugin-terser": "^6.1.0"

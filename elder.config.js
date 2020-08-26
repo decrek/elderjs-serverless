@@ -1,7 +1,3 @@
-require('dotenv').config();
-const path = require('path');
-const currentDir = process.env.LAMBDA_TASK_ROOT ? process.env.LAMBDA_TASK_ROOT : './';
-
 module.exports = {
   server: {
     prefix: '',
