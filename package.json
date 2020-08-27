@@ -1,10 +1,10 @@
 {
-  "name": "elderjs-template",
+  "name": "elderjs-serverless",
   "version": "1.0.0",
-  "description": "This is a project template for [Elder.js](https://elderguide.com/tech/elderjs/) apps. The template lives at https://github.com/elderjs/template and the Elder.js source is here: https://github.com/elderjs/elderjs",
+  "description": "An attempt to render Elderjs in a serverless function",
   "main": "./src/build.js",
   "scripts": {
-    "start": "npm run build:rollup && npm run dev:server",
+    "dev": "npx serve public",
     "build": "node ./src/cleanPublic.js && npm run build:rollup && npm run build:html && node ./src/afterBuild.js",
     "build:rollup": "rollup --config",
     "build:html": "node ./src/build.js",
@@ -56,7 +56,6 @@
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "netlify-cli": "^2.59.1",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
@@ -70,7 +69,7 @@
     "rollup-plugin-svelte": "^5.2.3",
     "rollup-plugin-terser": "^6.1.0"
   },
-  "author": "Nick Reese",
+  "author": "Declan Rek",
   "license": "MIT",
   "files": [
     "index.js",
@@ -78,7 +77,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Elderjs/template.git"
+    "url": "git+https://github.com/decrek/elderjs-serverless.git"
   },
   "keywords": [
     "svelte",
@@ -94,7 +93,7 @@
     "hydration"
   ],
   "bugs": {
-    "url": "https://github.com/Elderjs/template/issues"
+    "url": "https://github.com/decrek/elderjs-serverless/issues"
   },
-  "homepage": "https://github.com/Elderjs/template#readme"
+  "homepage": "https://github.com/decrek/elderjs-serverless#readme"
 }
