@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx serve public",
     "build": "node ./src/cleanPublic.js && npm run build:rollup && npm run build:html && node ./src/afterBuild.js",
-    "postbuild": "ncp ___ELDER___ public/___ELDER___",
+    "postbuild": "ncp ___ELDER___ public/___ELDER___ && ncp src public/src",
     "build:rollup": "rollup --config",
     "build:html": "node ./src/build.js",
     "dev:rollup": "rollup  --config --watch --no-watch.clearScreen",
