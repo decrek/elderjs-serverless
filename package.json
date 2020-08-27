@@ -10,7 +10,6 @@
     "build:rollup": "rollup --config",
     "build:html": "node ./src/build.js",
     "dev:rollup": "rollup  --config --watch --no-watch.clearScreen",
-    "dev:netlify": "netlify dev",
     "dev:server": "nodemon",
     "eslint": "eslint --ext .js .",
     "eslint:fix": "eslint --fix --ext .js ."

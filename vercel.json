@@ -4,7 +4,7 @@
   ],
   "functions": {
     "api/render-html.js": {
-      "includeFiles": "src/**"
+      "includeFiles": "___ELDER___/**"
     }
   }
 }
