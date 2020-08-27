@@ -15,6 +15,7 @@ npx degit Elderjs/template elderjs-app
 cd elderjs-app
 ```
 
+
 ### Install the dependencies:
 
 ```bash
