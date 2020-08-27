@@ -42,6 +42,7 @@
 </svelte:head>
 
 <div class="hydrate">
+<h1>{ data.aapje }</h1>
   <div class="right">
     <Clock hydrate-client={{}} />
   </div>
