@@ -4,11 +4,11 @@ module.exports = {
   },
   build: {},
   locations: {
-    assets: './public/dist/static/',
-    public: './public/',
+    assets: './dist/static/',
+    public: './',
     svelte: {
       ssrComponents: './___ELDER___/compiled/',
-      clientComponents: './public/dist/svelte/',
+      clientComponents: './dist/svelte/',
     },
     systemJs: '/dist/static/s.min.js',
     intersectionObserverPoly: '/dist/static/intersection-observer.js',
