@@ -42,7 +42,14 @@
 </svelte:head>
 
 <div class="hydrate">
-<h1>{ data.aapje }</h1>
+  <h1>{ data.aapje }</h1>
+
+  {#if data.user}
+    <h2>{ data.user }</h2>
+  {:else}
+    Log in
+  {/if}
+
   <div class="right">
     <Clock hydrate-client={{}} />
   </div>
