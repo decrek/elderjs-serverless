@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "npx serve public",
     "build": "node ./src/cleanPublic.js && npm run build:rollup && npm run build:html && node ./src/afterBuild.js",
+    "postbuild": "ncp ___ELDER___ public/___ELDER___",
     "build:rollup": "rollup --config",
     "build:html": "node ./src/build.js",
     "dev:rollup": "rollup  --config --watch --no-watch.clearScreen",
@@ -32,6 +33,7 @@
     "gray-matter": "^4.0.2",
     "intersection-observer": "^0.11.0",
     "markdown-js": "^0.0.4",
+    "ncp": "^2.0.0",
     "node-fetch": "^2.3.0",
     "polka": "^0.5.2",
     "remark": "^12.0.1",
