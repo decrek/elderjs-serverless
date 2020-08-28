@@ -1,12 +1,15 @@
 require('dotenv').config();
-const { Elder, Page } = require('@elderjs/elderjs');
+const { Elder, Page, getConfig } = require('@elderjs/elderjs');
 const elder = new Elder({ context: 'server' });
 
 module.exports = async (req, res) => {
   const bootstrappedElder = await elder.bootstrap();
   const requestObject = bootstrappedElder.serverLookupObject['/'];
-  const route = bootstrappedElder.routes[requestObject.route];
+  console.log({ __dirname });
+  console.log('config', getConfig('server'));
+  console.log('routes', bootstrappedElder.routes);
 
+  const route = bootstrappedElder.routes[requestObject.route];
   const dataHook = {
     hook: 'data',
     name: 'addUser',
