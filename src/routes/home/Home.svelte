@@ -47,8 +47,9 @@
   {#if data.user}
     <h2>{ data.user }</h2>
   {:else}
-    Log in
+    <a href="/login/">Log in</a>
   {/if}
+  <a href="/account/">Account</a>
 
   <div class="right">
     <Clock hydrate-client={{}} />
