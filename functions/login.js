@@ -1,7 +1,7 @@
 const generateAuthCookie = require('./lib/generateAuthCookie');
 
 exports.handler = async (event, context, callback) => {
-  const { httpMethod } = event;
+  const { httpMethod, body } = event;
 
   if (httpMethod !== 'POST') {
     callback(null, {
@@ -14,9 +14,13 @@ exports.handler = async (event, context, callback) => {
     });
   }
 
-  console.log('event', event.body);
-  // TODO: do actual authentication
-  const cookie = generateAuthCookie();
+  const parsedCookie = body.split('&').reduce((out, keyVal) => {
+    const keyValSplitted = keyVal.split('=');
+    out[keyValSplitted[0]] = keyValSplitted[1];
+    return out;
+  }, {});
+
+  const cookie = generateAuthCookie({ user: { userName: parsedCookie.userName } });
 
   callback(null, {
     statusCode: 302,

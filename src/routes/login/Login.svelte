@@ -15,7 +15,7 @@
   <form action="/api/login/" method="post">
     <label>
       Username
-      <input type="text" name="username">
+      <input type="text" name="userName">
     </label>
     <label>
       Password
