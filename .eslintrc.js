@@ -17,4 +17,7 @@ module.exports = {
     'no-mixed-spaces-and-tabs': ['warn'],
     'node/no-unpublished-require': ['off'],
   },
+  parserOptions: {
+    sourceType: 'module',
+  },
 };
