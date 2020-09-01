@@ -1,0 +1,45 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+  functions = "functions"
+    [build.environment]
+      NODE_VERSION="12.18.3"
+
+[dev]
+  framework = "#custom"
+  command = "npm run dev"
+  targetPort = 5000
+  port = 8888
+  publish = "public"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+
+[[headers]]
+  for = "/dist/assets/*"
+  [headers.values]
+    cache-control = '''
+        public,
+        max-age=31536000,
+        immutable'''
+
+[[redirects]]
+  from = "/render-html"
+  to = "/.netlify/functions/render-html"
+  status = 200
+
+[[redirects]]
+  from = "/api/login"
+  to = "/.netlify/functions/login"
+  status = 200
+
+[[redirects]]
+  from = "/account"
+  to = "/.netlify/functions/account"
+  status = 200
