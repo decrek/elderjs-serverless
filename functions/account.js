@@ -17,7 +17,7 @@ exports.handler = async (event) => {
         };
       }
     } catch (e) {
-      console.log('Something went wrond, falling back to login page', e);
+      console.log('Something went wrong, falling back to login page', e);
     }
   }
 
