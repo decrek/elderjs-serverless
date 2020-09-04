@@ -1,4 +1,4 @@
-# Elder serverless expirement
+# Elder serverless experiment
 
 This is an experiment to see if we can render [ElderJS](https://elderguide.com/tech/elderjs/) in Netlify functions.
 
