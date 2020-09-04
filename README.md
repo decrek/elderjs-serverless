@@ -1,65 +1,13 @@
-# Elder.js Template Project
+# Elder serverless expirement
 
-<img src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Node&query=engines.node&url=https%3A%2F%2Fraw.githubusercontent.com%2Felderjs%2Ftemplate%2Fmaster%2Fpackage.json" alt="node version" />
+This is an experiment to see if we can render [ElderJS](https://elderguide.com/tech/elderjs/) in Netlify functions.
 
-This is a project template for [Elder.js](https://elderguide.com/tech/elderjs/) apps. The template lives at https://github.com/elderjs/template and the Elder.js source is here: https://github.com/elderjs/elderjs
+See [functions/lib/render-elder-page.js](functions/lib/render-elder-page.js) how ElderJS is used for serverless rendering. And see [functions/account.js](functions/account.js) to see how `render-elder-page.js` is being used.
 
-Here is a demo of the template: [https://elderjs.netlify.app/](https://elderjs.netlify.app/)
+## Getting started
 
-## Get started
+Note that you need to install Netlify cli globally, `npm install netlify-cli -g`, for local development.
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit Elderjs/template elderjs-app
-cd elderjs-app
-```
-
-
-### Install the dependencies:
-
-```bash
-npm install # or just yarn
-```
-
-### Start Project:
-
-```bash
-npm start
-```
-
-Navigate to [localhost:3000](http://localhost:3000). You should see your app running.
-
-
-### Development:
-
-For development, we recommend running two separate terminals. One for the server and the other for rollup.
-
-**Terminal 1**
-
-```bash
-npm run dev:server # `npm start` above starts a server, but doesn't rebuild your Svelte components on change.
-```
-
-**Terminal 2**
-
-```bash
-npm run dev:rollup # This rebuilds your svelte components on change.
-```
-
-Once you have these two terminals open, edit a component file in `src`, save it, and reload the page to see your changes.
-
-### To Build HTML:
-
-```bash
-npm run build
-```
-
-This will build all of your html into the /public/ folder.
-
-
-### What to Expect
-
-This template is designed to be part demo, part tutorial. We hope you enjoy if you hit snags please create a GitHub issue. :)
-
-<img width="1452" alt="image" src="https://user-images.githubusercontent.com/3580879/89454786-358ba380-d72f-11ea-975a-1c0a6aa5a37e.png">
+- Install dependencies: `npm install`
+- Build ElderJs for production: `npm run build`
+- Serve and watch functions with Netlify dev: `netlify dev`
