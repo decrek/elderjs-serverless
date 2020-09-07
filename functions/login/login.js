@@ -1,4 +1,4 @@
-const generateAuthCookie = require('./lib/generateAuthCookie');
+const generateAuthCookie = require('../lib/generateAuthCookie');
 
 exports.handler = async (event, context, callback) => {
   const { httpMethod, body } = event;
