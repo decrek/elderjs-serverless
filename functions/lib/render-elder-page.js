@@ -1,12 +1,12 @@
 const { Elder, Page, getConfig } = require('@elderjs/elderjs');
-const elder = new Elder({ context: 'server' });
+const config = require('./elder.config');
+const elder = new Elder({ context: 'server', configOptions: config });
 
 module.exports = async function renderElderPage(permalink, data = {}) {
   await elder.bootstrap();
   const request = elder.serverLookupObject[permalink];
 
-  console.log('serverlookupobject', elder.serverLookupObject);
-  console.log('getConfig', await getConfig());
+  console.log('elder locations', elder.settings.locations);
 
   const route = elder.routes[request.route];
   const dataHook = {

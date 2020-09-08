@@ -5,11 +5,11 @@ const COOKIE_NAME = 'jwt';
 const renderElderPage = require('../lib/render-elder-page');
 const glob = require('fast-glob');
 
-
 exports.handler = async (event) => {
   console.log('__dirname', __dirname);
   console.log('__filename', __filename);
-  console.log(await glob(['**/**/*.*']));
+  console.log('ELDER compiled', await glob(['**/___ELDER___/*.*']));
+  console.log('src', await glob(['**/src/*.*']));
 
   if (event.headers.cookie) {
     const parsedCookie = cookie.parse(event.headers.cookie);

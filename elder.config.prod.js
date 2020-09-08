@@ -1,10 +1,13 @@
+const path = require('path');
 module.exports = {
   server: {
     prefix: '',
   },
   build: {},
   locations: {
-    assets: './aapje/',
+    rootDir: path.resolve(__dirname, '../account'),
+    srcFolder: './src/',
+    assets: './public/dist/static/',
     public: './public/',
     svelte: {
       ssrComponents: './___ELDER___/compiled/',

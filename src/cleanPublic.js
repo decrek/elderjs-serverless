@@ -4,5 +4,5 @@ const { getConfig } = require('@elderjs/elderjs');
 
 const { locations } = getConfig();
 
-console.log(' Clearing out public folder.');
-del.sync(`${path.resolve(process.cwd(), locations.public)}*`);
+console.log('Clearing out public folder.');
+del.sync(`${path.resolve(locations.rootDir, locations.public)}*`);

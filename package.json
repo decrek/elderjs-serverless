@@ -8,7 +8,7 @@
     "build": "node ./src/cleanPublic.js && npm run build:rollup && npm run build:html && node ./src/afterBuild.js",
     "build:rollup": "rollup --config",
     "build:html": "node ./src/build.js",
-    "postbuild": "ncp elder.config.prod.js functions/account/elder.config.js",
+    "postbuild": "ncp elder.config.prod.js functions/lib/elder.config.js; ncp src functions/account/src; ncp ___ELDER___ functions/account/___ELDER___; mkdirp functions/account/public/dist && ncp public/dist functions/account/public/dist",
     "dev:rollup": "rollup  --config --watch --no-watch.clearScreen",
     "dev:server": "nodemon",
     "eslint": "eslint --ext .js .",
@@ -19,7 +19,7 @@
     "node": ">= 12.0.0"
   },
   "dependencies": {
-    "@elderjs/elderjs": "^0.0.24",
+    "@elderjs/elderjs": "decrek/elderjs#pass-elder-config-to-constructor",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cookie": "^0.4.1",
@@ -60,6 +60,7 @@
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "mkdirp": "^1.0.4",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
