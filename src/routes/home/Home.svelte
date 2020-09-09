@@ -42,8 +42,6 @@
 </svelte:head>
 
 <div class="hydrate">
-  <h1>{ data.aapje }</h1>
-
   {#if data.user}
     <h2>{ data.user }</h2>
   {:else}
