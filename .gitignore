@@ -5,6 +5,10 @@ elderjs/build/
 /build/
 .DS_Store
 .env
+/functions/lib/elder.config.js
+/functions/account/___ELDER___
+/functions/account/src
+/functions/account/public
 
 # Local Netlify folder
 .netlify
