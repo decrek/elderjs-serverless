@@ -5,7 +5,7 @@ module.exports = {
   },
   build: {},
   locations: {
-    rootDir: path.resolve(__dirname),
+    rootDir: path.resolve(__dirname, '../account'),
     srcFolder: './src/',
     assets: './public/dist/static/',
     public: './public/',
