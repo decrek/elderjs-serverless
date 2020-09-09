@@ -9,6 +9,7 @@ exports.handler = async (event) => {
   console.log('__dirname', __dirname);
   console.log('__filename', __filename);
   console.log('ELDER compiled', await glob(['**/___ELDER___/*.*']));
+  console.log('lib', await glob(['**/lib/*.*']));
   console.log('src', await glob(['**/src/*.*']));
 
   if (event.headers.cookie) {
