@@ -5,6 +5,7 @@ elderjs/build/
 /build/
 .DS_Store
 .env
+/functions/dist/
 
 # Local Netlify folder
 .netlify
