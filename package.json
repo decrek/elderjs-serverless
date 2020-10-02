@@ -8,7 +8,7 @@
     "build": "node ./src/cleanPublic.js && npm run build:rollup && npm run build:html && node ./src/afterBuild.js",
     "build:rollup": "rollup --config",
     "build:html": "node ./src/build.js",
-    "postbuild": "mkdirp functions/render/public/dist; ncp elder.config.prod.js functions/render/elder.config.js; ncp src functions/render/src; ncp ___ELDER___ functions/render/___ELDER___; ncp public/dist functions/render/public/dist",
+    "postbuild": "mkdirp functions/render/public/dist; ncp elder.config.prod.js functions/lib/elder.config.js; ncp src functions/render/src; ncp ___ELDER___ functions/render/___ELDER___; ncp public/dist functions/render/public/dist",
     "dev:rollup": "rollup  --config --watch --no-watch.clearScreen",
     "dev:server": "nodemon",
     "eslint": "eslint --ext .js .",
