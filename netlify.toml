@@ -30,11 +30,6 @@
         immutable'''
 
 [[redirects]]
-  from = "/api/login"
-  to = "/.netlify/functions/login"
-  status = 200
-
-[[redirects]]
-  from = "/account"
-  to = "/.netlify/functions/account"
+  from = "*"
+  to = "/.netlify/functions/render"
   status = 200
