@@ -1,14 +1,9 @@
-const { Elder, Page, getConfig } = require('@elderjs/elderjs');
+const { Elder, Page } = require('@elderjs/elderjs');
 const config = require('./elder.config');
-
-console.log(config);
 
 const elder = new Elder({ context: 'server', configOptions: config });
 
 module.exports = async function renderElderPage(permalink, data = {}) {
-
-  getConfig();
-
   await elder.bootstrap();
   const request = elder.serverLookupObject[permalink];
 
