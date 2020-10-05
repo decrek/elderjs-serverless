@@ -1,5 +1,5 @@
 const path = require('path');
-const fs= require('fs');
+const fs = require('fs');
 const fsPromises = fs.promises;
 
 module.exports = {
@@ -13,7 +13,8 @@ module.exports = {
       if (route.ssrOnly) {
         route.all().forEach(async (url) => {
           const staticRouteDir = path.join(settings.locations.public, url.slug);
-          removeStaticRouteDir(staticRouteDir);
+          const isIndex =  url.slug === '/';
+          removeStaticRouteDir(staticRouteDir, isIndex);
           // createSSRFunction({ routeName, locations: settings.locations });
         });
       }
@@ -21,20 +22,19 @@ module.exports = {
   },
 };
 
-async function removeStaticRouteDir(staticRouteDir) {
+async function removeStaticRouteDir(staticRouteDir, isIndex) {
   const resolvedStaticRouteDir = path.resolve(staticRouteDir);
-  if (fs.existsSync(resolvedStaticRouteDir)) {
-    return removeDirectory(resolvedStaticRouteDir);
+  if (fs.existsSync(path.join(resolvedStaticRouteDir, 'index.html'))) {
+    return removeDirectory(resolvedStaticRouteDir, isIndex);
   } else {
     // TODO: build doesn't seem to be really complete as files don't exist yet so using timeout for now
     setTimeout(() => {
-      return removeDirectory(resolvedStaticRouteDir);
+      return removeDirectory(resolvedStaticRouteDir, isIndex);
     }, 1000);
   }
 }
 
 function createSSRFunction({ routeName, locations }) {
-  console.log(routeName, locations);
   const srcFilename = `${routeName.toLowerCase()}.ssr.js`;
   const srcFile = path.join(locations.srcFolder, 'routes', routeName, srcFilename);
   const destFilename = `${routeName.toLowerCase()}.js`;
@@ -45,11 +45,19 @@ function createSSRFunction({ routeName, locations }) {
   });
 }
 
-function removeDirectory(path) {
-  return fsPromises
-    .rmdir(path, { recursive: true })
-    .then(() => console.log(`Deleted pregenerated ${path} as it is marked as SSR only.`))
-    .catch(onBuildError);
+function removeDirectory(dirPath, isIndex) {
+  if (isIndex) {
+    const filePath = path.join(dirPath, 'index.html');
+    return fsPromises
+      .unlink(filePath)
+      .then(() => console.log(`Deleted pregenerated ${filePath} as it is marked as SSR only.`))
+      .catch(onBuildError);
+  } else {
+    return fsPromises
+      .rmdir(dirPath, { recursive: true })
+      .then(() => console.log(`Deleted pregenerated ${dirPath} as it is marked as SSR only.`))
+      .catch(onBuildError);
+  }
 }
 
 function onBuildError(err) {
